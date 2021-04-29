@@ -20,22 +20,25 @@ const digitToString = (digit) =>{
 }
 
 //concatenate outputs of each digit to string conversion
-const readNumber = (num) =>{
+const fullNumberToString = (num) =>{
     const eachDigit = num.split("")
-    const numOutput = eachDigit.reduce(
+    const outputNumberString = eachDigit.reduce(
         (output,element) => {
             return( output + digitToString(element))
         },
     "");
-    return (numOutput)
+    return (outputNumberString)
 }
 
 //concatenate output of each number in argument array with correct formatting
-const logOutput = args.reduce(
+let finalOutput = args.reduce(
     (output,element) => {
-        return(output + readNumber(element) + ", ")
+        return(output + fullNumberToString(element) + ",")
     },
 "");
 
+//remove final comma from string
+finalOutput = finalOutput.slice(0,-1)
+
 //output final answer
-console.log(logOutput)
+console.log(finalOutput)
